@@ -34,5 +34,44 @@ public class Task02 {
         Scanner scanner = new Scanner(System.in);
         // TODO: Write your code here
 
+        System.out.print("t1 >>> ");
+        double t1 = scanner.nextDouble();
+
+        System.out.print("t2 >>> ");
+        double t2 = scanner.nextDouble();
+
+        System.out.print("dt >>> ");
+        double dt = scanner.nextDouble();
+
+        System.out.println("-----------------\n" +
+                "C       F\n" +
+                "-----------------");
+
+        while (t1 <= t2) {
+            System.out.printf(Locale.ENGLISH, "%2.2f    %2.2f\n", t1, (9 * t1 / 5 + 32));
+            t1 += dt;
+        }
+
+        System.out.println("-----------------");
     }
 }
+
+/*
+        //My first (initial) realization of current task:
+
+        int amount = (int) ((t2 - t1) / dt);
+        double f;
+        for (int i = 0; i <= amount; i++) {
+            f = 9 * t1 / 5 + 32;
+            System.out.printf(Locale.ENGLISH, "%2.2f    %2.2f\n", t1, f);
+            t1 += dt;
+         }
+*/
+
+/*
+        //My second realization of current task (after some optimization):
+
+        for (; t1 <= t2; t1 += dt) {
+            System.out.printf(Locale.ENGLISH, "%2.2f    %2.2f\n", t1, (9 * t1 / 5 + 32));
+        }
+*/
