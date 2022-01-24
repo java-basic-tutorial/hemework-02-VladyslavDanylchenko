@@ -1,5 +1,7 @@
 package com.softserveinc;
 
+import java.util.Locale;
+
 /*
     Write a program that calculates the average annual temperature.
     Also, you need to find months with the lowest and highest temperature in a year.
@@ -16,9 +18,69 @@ package com.softserveinc;
  */
 public class Task01 {
     public static void main(String[] args) {
-                              //  I  | II | III | IV |  V  |  VI | VII | VIII | IX  |  X  | XI |  XII
-        double[] temperature = { -1.7, -1.0, 2.6,  9.0, 15.1, 19.4, 21.4, 21.2, 17.1, 11.1, 5.9,  1.4 };
+        //  I  | II | III | IV |  V  |  VI | VII | VIII | IX  |  X  | XI |  XII
+        double[] temperature = {-1.7, -1.0, 2.6, 9.0, 15.1, 19.4, 21.4, 21.2, 17.1, 11.1, 5.9, 1.4};
         // TODO: Write your code here
 
+        String[] months = {"I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII"};
+        double average = temperature[0];
+        int min = 0;
+        int max = 0;
+
+        for (int i = 1; i < temperature.length; i++) {
+            average += temperature[i];
+            if (temperature[i] < temperature[min]) {
+                min = i;
+            }
+            if (temperature[i] > temperature[max]) {
+                max = i;
+            }
+        }
+        average /= temperature.length;
+        System.out.printf(Locale.ENGLISH, "Average annual temperature: %2.5g\n", average);
+
+        // First variant of printing number of month (using array)
+        System.out.println("Month with the lowest temperature in a year: " + months[min]);
+
+        // Second variant of printing number of month (using switch)
+        System.out.print("The month with the highest temperatures in a year: ");
+        switch (max) {
+            case 0:
+                System.out.println("I");
+                break;
+            case 1:
+                System.out.println("II");
+                break;
+            case 2:
+                System.out.println("III");
+                break;
+            case 3:
+                System.out.println("IV");
+                break;
+            case 4:
+                System.out.println("V");
+                break;
+            case 5:
+                System.out.println("VI");
+                break;
+            case 6:
+                System.out.println("VII");
+                break;
+            case 7:
+                System.out.println("VIII");
+                break;
+            case 8:
+                System.out.println("IX");
+                break;
+            case 9:
+                System.out.println("X");
+                break;
+            case 10:
+                System.out.println("XI");
+                break;
+            case 11:
+                System.out.println("XII");
+                break;
+        }
     }
 }
