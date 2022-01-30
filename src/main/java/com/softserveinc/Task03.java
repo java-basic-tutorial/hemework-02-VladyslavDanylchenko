@@ -1,6 +1,5 @@
 package com.softserveinc;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 /*
@@ -26,6 +25,29 @@ public class Task03 {
         // TODO: Write your code here
 
         int n;
+        int min = Integer.MAX_VALUE;
+        do {
+            System.out.print(">>> ");
+            n = scanner.nextInt();
+            if (n <= 0)
+                break;
+            min = Math.min(min, n);
+
+        } while (true);
+
+        if (min != Integer.MAX_VALUE) {
+            System.out.printf("Minimum number is %d\n", min);
+        } else {
+            System.out.println("None of valid numbers entered");
+        }
+    }
+}
+
+// My initial variant of implementation
+
+/*      Scanner scanner = new Scanner(System.in);
+
+        int n;
         int[] arr = new int[0];
         do {
             System.out.print(">>> ");
@@ -48,4 +70,4 @@ public class Task03 {
             System.out.println("None of valid numbers entered");
         }
     }
-}
+*/
